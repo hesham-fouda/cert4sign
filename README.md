@@ -6,7 +6,9 @@ An **open-source reference implementation** of the ZATCA Phase 2 e-invoicing onb
 - **Documentation site**: [https://cert4sign.com](https://cert4sign.com) *(documentation only &mdash; no hosted tool is offered)*
 - **Wiki**: [github.com/hesham-fouda/cert4sign/wiki](https://github.com/hesham-fouda/cert4sign/wiki)
 
-> **Disclaimer**: Cert4Sign is **not affiliated with or authorized by ZATCA**. It is an open-source reference implementation for testing and simulation purposes only. **No hosted service is offered** &mdash; clone the source from GitHub to run the tool locally.
+> **Status**: Cert4Sign is in **pre-release**. The runnable source code is being prepared and has not been published to this repository yet.
+>
+> **Disclaimer**: Cert4Sign is **not affiliated with or authorized by ZATCA**. It is an open-source reference implementation for testing and simulation purposes only. **No hosted service is offered** &mdash; once the source is published, you will need to clone this repository and run the tool yourself.
 
 ## What It Implements
 
@@ -19,15 +21,11 @@ The codebase covers the complete ZATCA Phase 2 e-invoicing onboarding process:
 
 All cryptographic operations (ECDSA secp256k1, XAdES enveloped signatures, QR codes) are implemented in the codebase.
 
-## Running Locally
+## Status: Pre-Release
 
-Clone the repository and follow the setup instructions in the [Getting Started wiki page](https://github.com/hesham-fouda/cert4sign/wiki/Getting-Started). The codebase is designed to run on Cloudflare Workers, but the core logic is portable.
+> The runnable source code is **being prepared and has not been published yet**. This repository currently hosts only the project README, issue templates, and the wiki documentation. **Watch this repository** to be notified when the codebase is released.
 
-```sh
-git clone https://github.com/hesham-fouda/cert4sign.git
-cd cert4sign
-# follow Getting Started in the wiki for setup
-```
+When released, the codebase will be designed to run on Cloudflare Workers, with portable core CSR and signing logic.
 
 ## Environments
 
@@ -69,4 +67,4 @@ The codebase, when run, behaves as follows:
 
 ## Disclaimer
 
-Cert4Sign is **not affiliated with or authorized by ZATCA**. It is an open-source reference implementation for testing and simulation purposes only. **No hosted service is offered.** See [Terms of Service](https://github.com/hesham-fouda/cert4sign/wiki/Terms-of-Service) for details.
+Cert4Sign is **not affiliated with or authorized by ZATCA**. It is an open-source reference implementation for testing and simulation purposes only, currently in **pre-release** &mdash; the runnable source has not been published yet. **No hosted service is offered.** See [Terms of Service](https://github.com/hesham-fouda/cert4sign/wiki/Terms-of-Service) for details.
