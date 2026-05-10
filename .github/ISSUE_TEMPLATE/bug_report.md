@@ -16,7 +16,7 @@ A clear description of what the bug is.
 - Date/Time: [when the issue occurred]
 
 **Steps to reproduce**
-1. Go to cert4sign.com
+1. Run the Cert4Sign codebase locally (see Getting Started in the wiki)
 2. Fill in '...'
 3. Click '...'
 4. See error: '...'

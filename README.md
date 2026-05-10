@@ -1,19 +1,33 @@
 # Cert4Sign
 
-Generate ZATCA-compliant Certificate Signing Requests (CSRs) and complete the full e-invoicing compliance onboarding — directly from your browser.
+An **open-source reference implementation** of the ZATCA Phase 2 e-invoicing onboarding flow for Saudi Arabia &mdash; PKCS#10 CSR generation, Compliance CSID, six required test invoices, and Production CSID.
 
-**Live App**: [https://cert4sign.com](https://cert4sign.com)
+- **Source**: [github.com/hesham-fouda/cert4sign](https://github.com/hesham-fouda/cert4sign)
+- **Documentation site**: [https://cert4sign.com](https://cert4sign.com) *(documentation only &mdash; no hosted tool is offered)*
+- **Wiki**: [github.com/hesham-fouda/cert4sign/wiki](https://github.com/hesham-fouda/cert4sign/wiki)
 
-## What It Does
+> **Disclaimer**: Cert4Sign is **not affiliated with or authorized by ZATCA**. It is an open-source reference implementation for testing and simulation purposes only. **No hosted service is offered** &mdash; clone the source from GitHub to run the tool locally.
 
-Cert4Sign walks you through the complete ZATCA Phase 2 e-invoicing onboarding process:
+## What It Implements
 
-1. **Generate CSR** — with your organization, Tax ID, and EGS device details
-2. **Obtain Compliance Certificate** — submitted automatically to ZATCA's API
-3. **Run Compliance Tests** — 6 test invoices (standard + simplified) signed and submitted
-4. **Get Production Certificate** — ready for live invoice reporting and clearance
+The codebase covers the complete ZATCA Phase 2 e-invoicing onboarding process:
 
-All cryptographic operations (ECDSA secp256k1, XAdES signing, QR codes) are handled for you.
+1. **CSR generation** &mdash; from organization, Tax ID, and EGS device inputs
+2. **Compliance Certificate (CCSID) acquisition** &mdash; submitted to ZATCA's compliance API
+3. **Compliance testing** &mdash; six test invoices (standard + simplified, plus debit and credit notes) signed and submitted
+4. **Production Certificate (PCSID) exchange** &mdash; ready for live invoice reporting and clearance
+
+All cryptographic operations (ECDSA secp256k1, XAdES enveloped signatures, QR codes) are implemented in the codebase.
+
+## Running Locally
+
+Clone the repository and follow the setup instructions in the [Getting Started wiki page](https://github.com/hesham-fouda/cert4sign/wiki/Getting-Started). The codebase is designed to run on Cloudflare Workers, but the core logic is portable.
+
+```sh
+git clone https://github.com/hesham-fouda/cert4sign.git
+cd cert4sign
+# follow Getting Started in the wiki for setup
+```
 
 ## Environments
 
@@ -35,10 +49,24 @@ Full documentation is available in the [Wiki](https://github.com/hesham-fouda/ce
 
 ## Support
 
-- **Email**: support@cert4sign.com
+- **General**: support@cert4sign.com
+- **Security / Responsible Disclosure**: security@cert4sign.com
 - **Issues**: [GitHub Issues](https://github.com/hesham-fouda/cert4sign/issues)
-- **Security**: security@cert4sign.com
+
+## Roadmap
+
+Reference integration helpers (CSR-generation snippets) for **JavaScript / Node**, **PHP**, and **.NET / C#** are on the way. Email [support@cert4sign.com](mailto:support@cert4sign.com) to request a specific stack be prioritized.
+
+## Security &amp; Data Handling (when self-hosted)
+
+The codebase, when run, behaves as follows:
+
+- **Private keys** are generated per request, returned only to the caller, and never written to any database, log, or persistent storage.
+- **OTPs** are forwarded directly to ZATCA's official endpoints in the same request and never persisted.
+- **ZATCA traffic** goes only to ZATCA's official gateway (`gw-fatoora.zatca.gov.sa`). No third-party intermediaries.
+- For security vulnerabilities or responsible disclosure, email [security@cert4sign.com](mailto:security@cert4sign.com).
+- For abuse reports, email [support@cert4sign.com](mailto:support@cert4sign.com).
 
 ## Disclaimer
 
-Cert4Sign is **not authorized by ZATCA**. It is an independent tool for testing, simulation, and compliance onboarding. See [Terms of Service](https://github.com/hesham-fouda/cert4sign/wiki/Terms-of-Service) for details.
+Cert4Sign is **not affiliated with or authorized by ZATCA**. It is an open-source reference implementation for testing and simulation purposes only. **No hosted service is offered.** See [Terms of Service](https://github.com/hesham-fouda/cert4sign/wiki/Terms-of-Service) for details.
